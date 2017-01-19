@@ -5,7 +5,7 @@
   use Ratchet\WebSocket\WsServer;
   use Ratchet\Http\HttpServer;
 
-  require __DIR__.'/vendor/autoload.php';
+  require '/usr/local/bin/vendor/autoload.php';
 
   /**
   * chat.php
