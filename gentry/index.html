@@ -5,13 +5,42 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>Gentry Game</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-        <div>NEW PAGE２２２２２２</div>
-    </body>
+<head>
+</head>
+<body>
+  <input type="text" id="text"/>
+  <input type="button" id="button" value="Send" />
+  <div id="msg-area">
+
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+
+        var conn = new WebSocket('ws://localhost:9000');
+      var msg_area = $('#msg-area');
+
+        conn.onopen = function(e) {
+          console.log("Connection established!");
+      };
+
+        $('#button').click(function(){
+            var msg = $('#text').val();
+            $('#text').val("");
+            //相手に送信
+            conn.send(msg);
+            //自分の投稿した内容をmsg_areaに追記
+            msg_area.append(warpMessage(msg));
+        });
+
+        conn.onmessage = function(e) {
+            //相手が投稿した内容をmsg_areaに追記
+            msg_area.append(warpMessage(e.data));
+        };
+
+        function warpMessage(msg){
+            return '<p>' + msg + '</p>';
+        }
+
+  </script>
+</body>
 </html>
