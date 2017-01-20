@@ -47,18 +47,20 @@ while (true) {
 		//check for any incomming data
 		while(socket_recv($changed_socket, $buf, 1024, 0) >= 1)
 		{
-			$received_text = unmask($buf); //unmask data
-            if ($received_text) {
-                echo 'IN';
-                $tst_msg = json_decode($received_text); //json decode 
-                $user_name = $tst_msg->name; //sender name
-                $user_message = $tst_msg->message; //message text
-                $user_color = $tst_msg->color; //color
+            if ($buf <> "") {
+                $received_text = unmask($buf); //unmask data
+                if ($received_text) {
+                    echo 'IN';
+                    $tst_msg = json_decode($received_text); //json decode 
+                    $user_name = $tst_msg->name; //sender name
+                    $user_message = $tst_msg->message; //message text
+                    $user_color = $tst_msg->color; //color
+                }
+
+                //prepare data to be sent to client
+                $response_text = mask(json_encode(array('type'=>'usermsg', 'name'=>$user_name, 'message'=>$user_message, 'color'=>$user_color)));
+                send_message($response_text); //send data
             }
-			
-			//prepare data to be sent to client
-			$response_text = mask(json_encode(array('type'=>'usermsg', 'name'=>$user_name, 'message'=>$user_message, 'color'=>$user_color)));
-			send_message($response_text); //send data
 			break 2; //exist this loop
 		}
 		
