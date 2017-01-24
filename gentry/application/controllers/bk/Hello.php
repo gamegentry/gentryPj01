@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Hello extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,6 +20,18 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+        $this->load->database();
+
+        if ($this->db->conn_id === FALSE)
+        {
+            // データベースに接続されていません。
+            echo 'データベースに接続されていません';
+        }
+        else
+        {
+            echo 'データベースに接続されています';
+            // データベースに接続されています。
+        }
+//		$this->load->view('welcome_message');
 	}
 }

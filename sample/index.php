@@ -88,10 +88,12 @@ $user_colour = array_rand($colours);
 
 
 <script language="javascript" type="text/javascript">  
-$(document).ready(function(){
+//$(document).ready(function(){
+function create () {
+		var mymessage = $('#port').val(); //get message text
 	//create a new WebSocket object.
-	var wsUri = "ws://54.65.4.18:9000/sample/server.php"; 	
-// 	var wsUri = "ws://localhost:9000/sample/server.php"; 	
+	//var wsUri = "ws://54.65.4.18:60000/sample/server.php"; 	
+ 	var wsUri = "ws://localhost:". ."/sample/server.php"; 	
 	websocket = new WebSocket(wsUri); 
 	
 	websocket.onopen = function(ev) { // connection is open 
@@ -149,7 +151,7 @@ $(document).ready(function(){
 	
 	websocket.onerror	= function(ev){$('#message_box').append("<div class=\"system_error\">Error Occurred - "+ev.data+"</div>");}; 
 	websocket.onclose 	= function(ev){$('#message_box').append("<div class=\"system_msg\">Connection Closed</div>");}; 
-});
+}
 
 
 
@@ -164,14 +166,15 @@ $(document).ready(function(){
 onkeydown = "if (event.keyCode == 13)document.getElementById('send-btn').click()"  />
 
 
-
-
-
 </div>
 
 <button id="send-btn" class=button>Send</button>
 
 </div>
+
+
+<input type="text" name="port" placeholder="port" />
+<input type="button"  onclick="create(); " value="加入"/>
 
 </body>
 </html>

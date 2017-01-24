@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost'; //host
-echo $argv[0];
-$port = $argv[0]; //port
+echo $argv[1];
+$port = $argv[1]; //port
 $null = NULL; //null var
 
 //Create TCP/IP sream socket

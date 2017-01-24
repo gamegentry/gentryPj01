@@ -1,0 +1,4 @@
+# ※URLの/index.php/を省略する
+# RewriteEngine on
+# RewriteCond $1 !^(index\.php|images|robots\.txt)
+# RewriteRule ^(.*)$ /gentryPj01/gentry/index.php/$1 [L]
