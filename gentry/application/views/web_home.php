@@ -10,14 +10,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script language="javascript" type="text/javascript">  
   function ready () {
 //    window.device.
-//    alert(navigator.userAgent);
+    alert(navigator.userAgent);
 //    var deviceType = "pc";
     if (navigator.userAgent.indexOf('iPhone') > 0 
       || navigator.userAgent.indexOf('iPad') > 0 
       || navigator.userAgent.indexOf('iPod') > 0 
       || navigator.userAgent.indexOf('Android') > 0) {
       // SPからのアクセス、デバイスにより自動ログイン
-      alert(window.device.uuid);
+//      alert(window.device.uuid);
       //Ajax	
       $.ajax({
           type: 'post', // HTTPメソッド（CodeIgniterだとgetは捨てられる）
