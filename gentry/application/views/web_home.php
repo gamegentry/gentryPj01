@@ -88,17 +88,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div id="login">
       
-    <form name='form-login'>
-        <span class="fontawesome-user"></span>
+    <div >
+        <span class="fontawesome-user fa-5x"></span>
           <input type="text" id="user" placeholder="Username">
        
         <span class="fontawesome-lock"></span>
+          <!--<input type="image" src="../../resource/img/lock.gif" />-->
           <input type="password" id="pass" placeholder="Password">
         
         <!--<input type="submit" value="Login">-->
         <input type="button" onclick="login();" value="ログイン"/>
 
-</form>
+</div>
         
 </body>
 </html>
