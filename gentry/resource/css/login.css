@@ -30,13 +30,13 @@ after { clear: both; }
 
 #login {
   margin: 30% auto;
-  width: 100%;
+  width: 90%;
 }
 
 #login div {
   margin: auto;
   padding: 22px 22px 22px 22px;
-  width: 100%;
+  width: 90%;
   border-radius: 5px;
   background: #282e33;
   border-top: 3px solid #434a52;
@@ -65,7 +65,7 @@ after { clear: both; }
   float: left;
   line-height: 150px;
   text-align: center;
-  width: 20%;
+  width: 19%;
   height: 150px;
 }
 
@@ -75,7 +75,7 @@ after { clear: both; }
   color: #a9a9a9;
   margin-bottom: 1em;
   padding: 0 16px;
-  width: 75%;
+  width: 79%;
   height: 150px;
 }
 
@@ -85,14 +85,14 @@ after { clear: both; }
   color: #a9a9a9;
   margin-bottom: 1em;
   padding: 0 16px;
-  width: 75%;
+  width: 79%;
   height: 150px;
 }
 
 #login div input[type="button"] {
   background: #b5cd60;
   border: 0;
-  width: 95%;
+  width: 100%;
   height: 140px;
   border-radius: 3px;
   color: white;
