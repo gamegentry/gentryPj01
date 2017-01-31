@@ -13,10 +13,11 @@ class Initialize extends CI_Controller {
         );
 
         //postで送られてきたデータ
-        $post_data = $this->input->post('number');
+        $userId = $this->input->post('userId');
+        $password = $this->input->post('password');
 
         //postデータをもとに$arrayからデータを抽出
-        $data = $array[$post_data];
+        $data = $array[$userId];
 		
         //$dataをJSONにして返す
         $this->output
