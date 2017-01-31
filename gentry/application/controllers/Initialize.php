@@ -5,7 +5,6 @@ class Initialize extends CI_Controller {
 
 	public function index()
 	{
-
         // サーバ側でもってるデータ
         $array = array(
             array('isSignon' => TRUE),
@@ -17,7 +16,7 @@ class Initialize extends CI_Controller {
         $password = $this->input->post('password');
 
         //postデータをもとに$arrayからデータを抽出
-        $data = $array[$userId];
+        $data = $array[1];
 		
         //$dataをJSONにして返す
         $this->output

@@ -20,6 +20,6 @@ class Signon extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('signon');
+		$this->load->view('handle_name_input');
 	}
 }

@@ -49,11 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     var userId = $("#user").val();
     var password = $("#pass").val();
     
-    if (userId.length > 0) {
+    if (userId.length > 0 && password.length > 0) {
       //Ajax	
       $.ajax({
         type: 'post', 
-        url: '../Initialize', 
+        url: '../initialize/', 
         data: {'userId': userId, 'password': password}, 
         dataType: 'json',
 
@@ -68,38 +68,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       });
     } else {
       // PCからのアクセス、手動ログインが必要
-//      window.location.href="../signin";
-      alert("入力してください。");
+      alert("ユーザ名とパスワードを入力してください。");
     }
   }
 </script>
 </head>
-<body >  
-    <div align="center" style="display: none;">
-    ユーザID
-    <br>
-    <input type="text" id="user_id" name="user_id" size="16" maxlength="8" placeholder="ユーザID" value="" pattern="[0-9]*">
-    <br>
-    パスワード
-    <br>
-    <input type="text" id="pass_word" name="pass_word" size="16" maxlength="8" placeholder="ユーザID" value="" pattern="[0-9]*">
-    <br>
-    <input type="image" onclick="login();" src="../../resource/button/signon.gif" value="ログイン"/>
-    </div>
-    <div id="login">
-      
+<body>  
+  <div id="login">
     <div >
-        <span class="fontawesome-user fa-5x"></span>
-          <input type="text" id="user" placeholder="Username">
-       
-        <span class="fontawesome-lock"></span>
-          <!--<input type="image" src="../../resource/img/lock.gif" />-->
-          <input type="password" id="pass" placeholder="Password">
-        
-        <!--<input type="submit" value="Login">-->
-        <input type="button" onclick="login();" value="ログイン"/>
+      <span class="fontawesome-user fa-5x"></span>
+      <input type="text" id="user" name="user" placeholder="Username">
 
-</div>
-        
+      <span class="fontawesome-lock"></span>
+      <input type="password" id="pass" name="pass" placeholder="Password">
+
+      <input type="button" onclick="login();" value="ログイン"/>
+    </div>
+  </div>
 </body>
 </html>
