@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<link rel="stylesheet" href="../../resource/css/login.css" type="text/css" />
+<link rel="stylesheet" href="../resource/css/login.css" type="text/css" />
 <script language="javascript" type="text/javascript">  
 //  function ready () {
 //  }
@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       //Ajax	
       $.ajax({
         type: 'post', 
-        url: '../Signon/', 
+        url: '../index.php/Signon/', 
         data: {'userId': userId, 'password': password, 'handleName': handleName}, 
         dataType: 'json',
 
@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //        success: function(data){
         success: function(){
 //          if (data.isSignon) {
-            window.location.href="../welcome";
+            window.location.href="../index.php/welcome";
 //          } else {
 //            window.location.href="../signon";
 //          }
