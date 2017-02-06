@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Top画面</title>
+<title>DRAW & GUESS</title>
 </head>
 <frameset cols="*" frameborder="1" border="1" framespacing="1">
-	<frame name="web_home" src="index.php/WebHome/" scrolling="auto">
+	<frame name="main" src="index.php/Login/" scrolling="auto">
 </frameset>
 </html>

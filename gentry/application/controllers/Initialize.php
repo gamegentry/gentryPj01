@@ -14,13 +14,43 @@ class Initialize extends CI_Controller {
         //postで送られてきたデータ
         $userId = $this->input->post('userId');
         $password = $this->input->post('password');
+        
+        $json = array();
+        try {
+            $slave_db = $this->load->database('default', TRUE);
+        
+            $sql = "SELECT * FROM USER_INFO WHERE USER_ID = '". $userId ."' AND DEVICE_ID='". $password ."'";
+            $result = $slave_db->query($sql);
+            $userInfo = $result->result('object');
+            $type =  gettype($userInfo);
+            
+            if (!empty($userInfo)) {
+                // 成功処理
+                $json['isSignon'] = TRUE;
+                $json['userInfo'] = $userInfo;
+                $json['type'] = $type;
+            } else {
+                // 失敗処理
+                $json['isSignon'] = FALSE;
+                $json['type'] = $type;
+            }
 
-        //postデータをもとに$arrayからデータを抽出
-        $data = $array[1];
+//            $member_info = array(
+//                'ex' => $userInfo,
+//            );
+//            $this->load->view('error', $member_info);
+          
+        } catch (Exception $ex) {
+
+            $member_info = array(
+                'ex' => $ex,
+            );
+            $this->load->view('error', $member_info);
+        }
 		
         //$dataをJSONにして返す
         $this->output
              ->set_content_type('application/json')
-             ->set_output(json_encode($data));
+             ->set_output(json_encode($json));
 	}
 }

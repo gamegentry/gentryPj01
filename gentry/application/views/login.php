@@ -5,9 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Top画面</title>
-    
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
+<title>DRAW & GUESS</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <link rel="stylesheet" href="../../resource/css/login.css" type="text/css" />
 <script language="javascript" type="text/javascript">  
@@ -48,6 +47,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     var userId = $("#user").val();
     var password = $("#pass").val();
+    window.sessionStorage.setItem('USER_ID', userId);
+    window.sessionStorage.setItem('PASSWORD', password);
     
     if (userId.length > 0 && password.length > 0) {
       //Ajax	
@@ -56,13 +57,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         url: '../initialize/', 
         data: {'userId': userId, 'password': password}, 
         dataType: 'json',
-
         //リクエストが成功したらこの関数を実行！！
         success: function(data){
           if (data.isSignon) {
-            window.location.href="../welcome";
+//            alert(data.userInfo[0].HANDLE_NAME);
+            window.sessionStorage.setItem('HANDLE_NAME', data.userInfo[0].HANDLE_NAME);
+            window.location.href="../welcome/";
           } else {
-            window.location.href="../signon";
+            alert("ユーザ名またはパスワードが正しくありません");
+//            window.location.href="../signon/";
           }
         }
       });
@@ -70,6 +73,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       // PCからのアクセス、手動ログインが必要
       alert("ユーザ名とパスワードを入力してください。");
     }
+  }
+  function singon () {
+      window.location.href="../signon/";
   }
 </script>
 </head>
@@ -83,6 +89,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <input type="password" id="pass" name="pass" placeholder="Password">
 
       <input type="button" onclick="login();" value="ログイン"/>
+      <br>
+      <br>
+      <input type="button" onclick="singon();" value="新規登録"/>
     </div>
   </div>
 </body>

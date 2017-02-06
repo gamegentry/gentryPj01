@@ -8,6 +8,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <title>Top画面</title>
 </head>
 <body>  
-      登録してください  
+    errorpage
+    <br>
+      <?php print_r($ex) ?>  
 </body>
 </html>

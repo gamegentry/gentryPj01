@@ -5,9 +5,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Top画面</title>
+<title>DRAW & GUESS</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
+<link rel="stylesheet" href="../../resource/css/login.css" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script language="javascript" type="text/javascript">  
+ function ready() {
+   
+       var handleName = window.sessionStorage.getItem('HANDLE_NAME');
+       alert(handleName);
+       $("#msg").val(handleName);
+ }
+</script>
 </head>
-<body>  
-      歓迎する  
+<body onload="ready();">  
+  <div id="login">
+    <div >
+        歓迎する、<input type="text" id='msg' readonly/>
+    </div>
+  </div>
 </body>
 </html>

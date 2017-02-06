@@ -91,10 +91,12 @@ after { clear: both; }
 
 #login div input[type="button"] {
   background: #b5cd60;
-  border: 0;
+  border: 3px;
+  /*border-radius: 3px 0px 0px 3px;*/
   width: 100%;
   height: 140px;
   border-radius: 3px;
+  border-color: #3b4148;
   color: white;
   cursor: pointer;
   transition: background 0.3s ease-in-out;

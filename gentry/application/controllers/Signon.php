@@ -20,6 +20,44 @@ class Signon extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('handle_name_input');
+        $member_info = array(
+            'user' => '山田',
+            'pass' => '太郎',
+        );
+        
+		$this->load->view('signon', $member_info);
 	}
+    
+	public function doSingon() {
+        $userId = $this->input->post('userId');
+        $password = $this->input->post('password');
+        $handleName = $this->input->post('handleName');
+        $json = array();
+        
+            //$slave_db = $this->load->database('default', TRUE);
+//        $slave_db = $this->load->database('default', TRUE);
+        
+            $sql = "INSERT INTO USER_INFO (USER_ID, HANDLE_NAME, DEVICE_ID, STATE) VALUES ('". $userId ."', '". $handleName ."', '". $password ."', 1)";
+            //$cnt = $slave_db->query($sql);
+            $cnt = $this->load->database('default', TRUE)->query($sql);
+            
+            if (!empty($cnt)) {
+                // 成功処理
+                $json['isSuccess'] = TRUE;
+            } else {
+                // 失敗処理
+                $json['isSuccess'] = FALSE;
+            }
+            
+            $member_info = array(
+                'ex' => $cnt,
+            );
+            $this->load->view('error', $member_info);
+		
+        //$dataをJSONにして返す
+        $this->output
+             ->set_content_type('application/json')
+             ->set_output(json_encode($json));
+      
+    }
 }

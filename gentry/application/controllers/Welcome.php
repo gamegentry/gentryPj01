@@ -20,6 +20,11 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+        $member_info = array(
+            'firstname' => '山田',
+            'surname' => '太郎',
+            'age' => 29,
+        );
 		$this->load->view('welcome');
 	}
 }
