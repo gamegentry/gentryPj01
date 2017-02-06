@@ -11,9 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script language="javascript" type="text/javascript">  
  function ready() {
-   
        var handleName = window.sessionStorage.getItem('HANDLE_NAME');
-       alert(handleName);
        $("#msg").val("歓迎する、" + handleName + "さん");
  }
 </script>

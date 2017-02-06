@@ -37,7 +37,7 @@ class Signon extends CI_Controller {
             //$slave_db = $this->load->database('default', TRUE);
 //        $slave_db = $this->load->database('default', TRUE);
         
-            $sql = "INSERT INTO USER_INFO (USER_ID, HANDLE_NAME, DEVICE_ID, STATE) VALUES ('". $userId ."', '". $handleName ."', '". $password ."', 1)";
+            $sql = "INSERT INTO USER_INFO (USER_ID, HANDLE_NAME, DEVICE_ID, STATE, CREATEDATE, UPDATEDATE) VALUES ('". $userId ."', '". $handleName ."', '". $password ."', 1, now9(), now9())";
             //$cnt = $slave_db->query($sql);
             $cnt = $this->load->database('default', TRUE)->query($sql);
             
