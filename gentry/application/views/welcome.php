@@ -14,14 +14,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    
        var handleName = window.sessionStorage.getItem('HANDLE_NAME');
        alert(handleName);
-       $("#msg").val(handleName);
+       $("#msg").val("歓迎する、" + handleName + "さん");
  }
 </script>
 </head>
 <body onload="ready();">  
   <div id="login">
     <div >
-        歓迎する、<input type="text" id='msg' readonly/>
+        <input type="text" id='msg' readonly/>
     </div>
   </div>
 </body>

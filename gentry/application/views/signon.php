@@ -54,6 +54,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       //リクエストが成功したらこの関数を実行！！
       success: function(data){
         if (data.isSuccess) {
+          window.sessionStorage.setItem('USER_ID', userId);
+          window.sessionStorage.setItem('PASSWORD', password);
+          window.sessionStorage.setItem('HANDLE_NAME', handleName);
           window.location.href="../welcome/";
         } else {
           alert("ユーザが既に登録されました。")
