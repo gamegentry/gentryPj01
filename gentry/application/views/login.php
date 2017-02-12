@@ -80,13 +80,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </script>
 </head>
 <body>  
-  <div id="login">
+  <div id="login">   
     <div >
       <span class="fontawesome-user fa-5x"></span>
       <input type="text" id="user" name="user" placeholder="Username">
 
       <span class="fontawesome-lock"></span>
-      <input type="password" id="pass" name="pass" placeholder="Password">
+      <input type="password" id="pass" name="pass" placeholder="Password jiao">
 
       <input type="button" onclick="login();" value="ログイン"/>
       <br>
